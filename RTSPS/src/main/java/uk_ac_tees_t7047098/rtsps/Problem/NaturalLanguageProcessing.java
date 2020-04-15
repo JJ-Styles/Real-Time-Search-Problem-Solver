@@ -1,6 +1,5 @@
 package uk_ac_tees_t7047098.rtsps.Problem;
 
-import opennlp.tools.lemmatizer.DictionaryLemmatizer;
 import opennlp.tools.lemmatizer.LemmatizerModel;
 import opennlp.tools.postag.POSModel;
 import opennlp.tools.postag.POSTaggerME;
@@ -10,6 +9,7 @@ import opennlp.tools.sentdetect.SentenceModel;
 import opennlp.tools.tokenize.Tokenizer;
 import opennlp.tools.tokenize.TokenizerME;
 import opennlp.tools.tokenize.TokenizerModel;
+import opennlp.tools.lemmatizer.DictionaryLemmatizer;
 
 import java.io.FileInputStream;
 import java.io.InputStream;
@@ -17,14 +17,14 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-class NaturalLanguageProcessing {
+public class NaturalLanguageProcessing {
     private String input;
     private List<String> sentences = new ArrayList<>();
     private List<String> tokens = new ArrayList<>();
     private List<String> lemmas = new ArrayList<>();
     private List<String> tags = new ArrayList<>();
 
-    NaturalLanguageProcessing(String input) {
+    public NaturalLanguageProcessing(String input) {
         this.input = input;
     }
 
@@ -69,7 +69,7 @@ class NaturalLanguageProcessing {
         }
     }
 
-    List<String> getSentences() {
+    public List<String> getSentences() {
         if (sentences.isEmpty()){
             generateSentences();
         }
@@ -88,7 +88,7 @@ class NaturalLanguageProcessing {
         }
     }
 
-    List<String> getTokens() {
+    public List<String> getTokens() {
         if (tokens.isEmpty()){
             generateTokens();
         }
@@ -113,7 +113,7 @@ class NaturalLanguageProcessing {
         }
     }
 
-    List<String> getTags(){
+    public List<String> getTags(){
         if (tags.isEmpty()) {
             generateTags();
         }
@@ -139,7 +139,7 @@ class NaturalLanguageProcessing {
         }
     }
 
-    List<String> getLemmas(){
+    public List<String> getLemmas(){
         if (lemmas.isEmpty()){
             generateLemmas();
         }
