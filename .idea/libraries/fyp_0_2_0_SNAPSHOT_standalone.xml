@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="fyp-0.2.0-SNAPSHOT-standalone">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/RTSPS/lib/fyp-0.2.0-SNAPSHOT-standalone.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
