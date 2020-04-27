@@ -160,7 +160,6 @@ public class NaturalLanguageProcessing {
                 generateTokens();
             }
 
-
             String[] tempToks = new String[tokens.size()];
             tempToks = tokens.toArray(tempToks);
             String[] tempTags = new String[tags.size()];
