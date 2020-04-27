@@ -6,7 +6,7 @@ public class SearchProperties {
     private String End;
     private String heuristic;
 
-    public SearchProperties() {
+    SearchProperties() {
         this.graph = null;
         this.End = null;
         this.heuristic = null;
@@ -17,7 +17,7 @@ public class SearchProperties {
         return graph;
     }
 
-    public void setGraph(String graph) {
+    void setGraph(String graph) {
         this.graph = graph;
     }
 
@@ -25,7 +25,7 @@ public class SearchProperties {
         return Start;
     }
 
-    public void setStart(String start) {
+    void setStart(String start) {
         Start = start;
     }
 
@@ -33,7 +33,7 @@ public class SearchProperties {
         return End;
     }
 
-    public void setEnd(String end) {
+    void setEnd(String end) {
         End = end;
     }
 
@@ -41,7 +41,7 @@ public class SearchProperties {
         return heuristic;
     }
 
-    public void setHeuristic(String heuristic) {
+    void setHeuristic(String heuristic) {
         this.heuristic = heuristic;
     }
 }
