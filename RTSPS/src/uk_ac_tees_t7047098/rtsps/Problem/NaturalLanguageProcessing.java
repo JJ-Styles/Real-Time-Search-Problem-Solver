@@ -28,7 +28,7 @@ public class NaturalLanguageProcessing {
         this.input = input;
     }
 
-    static SentenceModel getSentenceModel(String file) {
+    private static SentenceModel getSentenceModel(String file) {
         try (InputStream modelIn = new FileInputStream(file)) {
             return new SentenceModel(modelIn);
         } catch (Exception e) {
@@ -36,7 +36,8 @@ public class NaturalLanguageProcessing {
             return null;
         }
     }
-    static TokenizerModel getTokenModel(String file) {
+
+    private static TokenizerModel getTokenModel(String file) {
         try (InputStream modelIn = new FileInputStream(file)) {
             return new TokenizerModel(modelIn);
         } catch (Exception e) {
@@ -44,15 +45,8 @@ public class NaturalLanguageProcessing {
             return null;
         }
     }
-    static LemmatizerModel getLemmaModel(String file){
-        try (InputStream modelIn = new FileInputStream(file)) {
-            return new LemmatizerModel(modelIn);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
-    static DictionaryLemmatizer getDictionary(String file){
+
+    private static DictionaryLemmatizer getDictionary(String file){
         try (InputStream modelIn = new FileInputStream(file)) {
             return new DictionaryLemmatizer(modelIn);
         } catch (Exception e) {
@@ -60,7 +54,7 @@ public class NaturalLanguageProcessing {
             return null;
         }
     }
-    static POSModel getTagModel(String file){
+    private static POSModel getTagModel(String file){
         try (InputStream modelIn = new FileInputStream(file)) {
             return new POSModel(modelIn);
         } catch (Exception e) {

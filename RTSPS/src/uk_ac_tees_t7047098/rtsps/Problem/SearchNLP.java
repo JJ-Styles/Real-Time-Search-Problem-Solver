@@ -22,13 +22,13 @@ public class SearchNLP {
 
         if (!found.isEmpty()){
             for (String temp : found) {
-                if (KeywordDictionary.AnyGraphWord(temp)) {
+                if (KeywordDictionary.anyGraphWord(temp)) {
                     searchProperties.setGraph(KeywordDictionary.getGraphHeuristic(temp, tokens));
-                } else if (KeywordDictionary.AnyStartWord(temp)) {
+                } else if (KeywordDictionary.anyStartWord(temp)) {
                     searchProperties.setStart(KeywordDictionary.getNode(temp, tokens));
-                } else if (KeywordDictionary.AnyEndWord(temp)) {
+                } else if (KeywordDictionary.anyEndWord(temp)) {
                     searchProperties.setEnd(KeywordDictionary.getNode(temp, tokens));
-                } else if (KeywordDictionary.AnyHeuristicWord(temp)) {
+                } else if (KeywordDictionary.anyHeuristicWord(temp)) {
                     searchProperties.setHeuristic(KeywordDictionary.getGraphHeuristic(temp, tokens));
                 } else {
                     //do something with extras

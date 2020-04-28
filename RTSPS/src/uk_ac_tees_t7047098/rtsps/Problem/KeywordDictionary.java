@@ -3,7 +3,7 @@ package uk_ac_tees_t7047098.rtsps.Problem;
 import java.util.Arrays;
 import java.util.List;
 
-public class KeywordDictionary {
+class KeywordDictionary {
 
     private static final List<String> keywords = Arrays.asList(
             "Graph",
@@ -26,7 +26,7 @@ public class KeywordDictionary {
         return keywords;
     }
 
-    static boolean AnyStartWord(String word) {
+    static boolean anyStartWord(String word) {
         List<String> startWords = Arrays.asList( "Start", "Begin");
         for (String startWord : startWords) {
             if (word.equals(startWord.toLowerCase())) {
@@ -36,7 +36,7 @@ public class KeywordDictionary {
         return false;
     }
 
-    static boolean AnyGraphWord(String word) {
+    static boolean anyGraphWord(String word) {
         List<String> graphWords = Arrays.asList( "Graph", "Set", "Tree");
         for (String graphWord : graphWords) {
             if (word.equals(graphWord.toLowerCase())) {
@@ -46,7 +46,7 @@ public class KeywordDictionary {
         return false;
     }
 
-    static boolean AnyEndWord(String word) {
+    static boolean anyEndWord(String word) {
         List<String> endWords = Arrays.asList( "End", "Destination", "Goal", "Arrive");
         for (String endWord : endWords) {
             if (word.equals(endWord.toLowerCase())) {
@@ -56,7 +56,7 @@ public class KeywordDictionary {
         return false;
     }
 
-    static boolean AnyHeuristicWord(String word) {
+    static boolean anyHeuristicWord(String word) {
         List<String> graphWords = Arrays.asList( "Heuristic");
         for (String graphWord : graphWords) {
             if (word.equals(graphWord.toLowerCase())) {
@@ -67,17 +67,17 @@ public class KeywordDictionary {
     }
 
     static String getGraphHeuristic(String word, List<String> tokens) {
-        String result = "";
+        StringBuilder result = new StringBuilder();
         int index = tokens.indexOf(word);
 
         for (int i = index + 1; i < tokens.size(); i++) {
             if (tokens.get(i).equals(".")) {
                 break;
             } else {
-             result += tokens.get(i) + " ";
+             result.append(tokens.get(i)).append(" ");
             }
         }
-        return result;
+        return result.toString();
     }
 
     static String getNode(String word, List<String> tokens) {
