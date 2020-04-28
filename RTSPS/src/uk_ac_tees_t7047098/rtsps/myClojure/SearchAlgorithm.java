@@ -1,7 +1,5 @@
 package uk_ac_tees_t7047098.rtsps.myClojure;
 
-import java.util.function.Function;
-
 abstract class SearchAlgorithm implements Runnable {
 
     private String result;
