@@ -8,31 +8,25 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class DfsTest {
 
+    private Dfs dfs;
+
     @BeforeEach
     void setUp() {
-    }
-
-    @AfterEach
-    void tearDown() {
+        dfs = new Dfs("K",
+                ":A [:B :E] :B [:C :D] :E [:F :G] :C [:H :I] :G [:J :K]",
+                "A");
+        dfs.run();
     }
 
     @Test
     void getResult() {
-    }
-
-    @Test
-    void isValid() {
-    }
-
-    @Test
-    void checkResult() {
-    }
-
-    @Test
-    void run() {
+        String result = "[:A :B :C :H :I :D :E :F :G :J :K]";
+        assertEquals(result, dfs.getResult());
     }
 
     @Test
     void testToString() {
+        String toString = "DFS";
+        assertEquals(toString, dfs.toString());
     }
 }
