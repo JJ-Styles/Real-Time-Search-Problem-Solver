@@ -3,13 +3,18 @@ package uk_ac_tees_t7047098.rtsps.Problem;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Class takes the lemmas and tokens from the NLP and searches for the values from the Keyword Dictionary.
+ * When a word is found it assigns it to the search properties class.
+ */
 public class SearchNLP {
     private List<String> found = new ArrayList<>();
     private SearchProperties searchProperties = new SearchProperties();
 
-    public SearchNLP() {
-    }
-
+    /**
+     * @param lemmas created by the NLP
+     * @param tokens created by the NLP
+     */
     public void search(List<String> lemmas, List<String> tokens){
 
         for (String temp : lemmas) {
@@ -37,6 +42,9 @@ public class SearchNLP {
         }
     }
 
+    /**
+     * @return the search properties that have been created through the NLP and Keyword Dictionary.
+     */
     public SearchProperties getSearchProperties() {
         return searchProperties;
     }

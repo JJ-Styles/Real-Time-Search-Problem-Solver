@@ -17,6 +17,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Uses Apache Open NLP to carry out Natural Language Processing
+ * Will define several properties from the input that can be used by the solver
+ */
 public class NaturalLanguageProcessing {
     private String input;
     private List<String> sentences = new ArrayList<>();
@@ -24,10 +28,17 @@ public class NaturalLanguageProcessing {
     private List<String> lemmas = new ArrayList<>();
     private List<String> tags = new ArrayList<>();
 
+    /**
+     * @param input String from the user that is a natural language text. There is no limit to how big the input could be.
+     */
     public NaturalLanguageProcessing(String input) {
         this.input = input;
     }
 
+    /**
+     * @param file that contains the model which allows the Sentence Model to be created
+     * @return the created Sentence Model
+     */
     private static SentenceModel getSentenceModel(String file) {
         try (InputStream modelIn = new FileInputStream(file)) {
             return new SentenceModel(modelIn);
@@ -37,6 +48,10 @@ public class NaturalLanguageProcessing {
         }
     }
 
+    /**
+     * @param file that contains the model which allows the Tokenizer Model to be created
+     * @return the created Tokenizer Model
+     */
     private static TokenizerModel getTokenModel(String file) {
         try (InputStream modelIn = new FileInputStream(file)) {
             return new TokenizerModel(modelIn);
@@ -46,6 +61,10 @@ public class NaturalLanguageProcessing {
         }
     }
 
+    /**
+     * @param file that contains the model which allows the Dictionary Lemmatizer to be created
+     * @return the created Dictionary Lemmatizer
+     */
     private static DictionaryLemmatizer getDictionary(String file){
         try (InputStream modelIn = new FileInputStream(file)) {
             return new DictionaryLemmatizer(modelIn);
@@ -54,6 +73,11 @@ public class NaturalLanguageProcessing {
             return null;
         }
     }
+
+    /**
+     * @param file that contains the model which allows the POS Model to be created
+     * @return the created POS Model
+     */
     private static POSModel getTagModel(String file){
         try (InputStream modelIn = new FileInputStream(file)) {
             return new POSModel(modelIn);
@@ -63,13 +87,20 @@ public class NaturalLanguageProcessing {
         }
     }
 
-    public List<String> getSentences() {
+    /**
+     * @return the sentences that make up the input in a List. If no sentences have been generated the method generates them.
+     */
+    List<String> getSentences() {
         if (sentences.isEmpty()){
             generateSentences();
         }
         return sentences;
     }
 
+    /**
+     * Generates the sentences from the input using a specified model.
+     * Assigns the generated sentences to the sentences list.
+     */
     private void generateSentences(){
         SentenceModel model = getSentenceModel("lib/en-sent.bin");
 
@@ -82,6 +113,9 @@ public class NaturalLanguageProcessing {
         }
     }
 
+    /**
+     * @return the tokens that make up the input in a List. If no tokens have been generated the method generates them.
+     */
     public List<String> getTokens() {
         if (tokens.isEmpty()){
             generateTokens();
@@ -89,6 +123,10 @@ public class NaturalLanguageProcessing {
         return tokens;
     }
 
+    /**
+     * Generates the tokens from the input using a specified model.
+     * Assigns the generated tokens to the sentences list.
+     */
     private void generateTokens(){
         TokenizerModel model = getTokenModel("lib/en-token.bin");
 
@@ -107,13 +145,20 @@ public class NaturalLanguageProcessing {
         }
     }
 
-    public List<String> getTags(){
+    /**
+     * @return the POSTags that make up the input in a List. If no POSTags have been generated the method generates them.
+     */
+    List<String> getTags(){
         if (tags.isEmpty()) {
             generateTags();
         }
         return tags;
     }
 
+    /**
+     * Generates the POSTags from the input using a specified model.
+     * Assigns the generated POSTags to the sentences list.
+     */
     private void generateTags(){
         POSModel model = getTagModel("lib/en-pos-maxent.bin");
 
@@ -133,6 +178,9 @@ public class NaturalLanguageProcessing {
         }
     }
 
+    /**
+     * @return the lemmas that make up the input in a List. If no lemmas have been generated the method generates them.
+     */
     public List<String> getLemmas(){
         if (lemmas.isEmpty()){
             generateLemmas();
@@ -140,6 +188,10 @@ public class NaturalLanguageProcessing {
         return lemmas;
     }
 
+    /**
+     * Generates the lemmas from the input using a specified model.
+     * Assigns the generated lemmas to the sentences list.
+     */
     private void generateLemmas(){
         DictionaryLemmatizer dictionary = getDictionary("lib/dictionary.txt");
 
