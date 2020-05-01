@@ -76,7 +76,7 @@ abstract class SearchAlgorithm implements Runnable {
      * @param tempResult the result returned by the algorithm, held in a temp variable to determine if the result is not "Not Found"
      */
     void checkResult(String tempResult) {
-        setValid(!tempResult.equals("Not Found"));
+        setValid(!tempResult.equals("Not Found")); //Result checked so that if i valid answer is found the user gets the result rather than "Not Found"
         setResult(tempResult);
     }
 }

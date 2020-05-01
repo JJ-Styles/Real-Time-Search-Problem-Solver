@@ -39,7 +39,7 @@ public class NaturalLanguageProcessing {
      * @param file that contains the model which allows the Sentence Model to be created
      * @return the created Sentence Model
      */
-    private static SentenceModel getSentenceModel(String file) {
+    private static SentenceModel getSentenceModel(String file) { //use of param allows for different models to be used
         try (InputStream modelIn = new FileInputStream(file)) {
             return new SentenceModel(modelIn);
         } catch (Exception e) {
@@ -52,7 +52,7 @@ public class NaturalLanguageProcessing {
      * @param file that contains the model which allows the Tokenizer Model to be created
      * @return the created Tokenizer Model
      */
-    private static TokenizerModel getTokenModel(String file) {
+    private static TokenizerModel getTokenModel(String file) { //use of param allows for different models to be used
         try (InputStream modelIn = new FileInputStream(file)) {
             return new TokenizerModel(modelIn);
         } catch (Exception e) {
@@ -65,7 +65,7 @@ public class NaturalLanguageProcessing {
      * @param file that contains the model which allows the Dictionary Lemmatizer to be created
      * @return the created Dictionary Lemmatizer
      */
-    private static DictionaryLemmatizer getDictionary(String file){
+    private static DictionaryLemmatizer getDictionary(String file){ //use of param allows for different models to be used
         try (InputStream modelIn = new FileInputStream(file)) {
             return new DictionaryLemmatizer(modelIn);
         } catch (Exception e) {
@@ -78,7 +78,7 @@ public class NaturalLanguageProcessing {
      * @param file that contains the model which allows the POS Model to be created
      * @return the created POS Model
      */
-    private static POSModel getTagModel(String file){
+    private static POSModel getTagModel(String file){ //use of param allows for different models to be used
         try (InputStream modelIn = new FileInputStream(file)) {
             return new POSModel(modelIn);
         } catch (Exception e) {

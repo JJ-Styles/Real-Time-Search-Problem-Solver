@@ -25,7 +25,7 @@ class KeywordDictionary {
             "Traverse",
             "Begin",
             "Arrive",
-            "Heuristic");
+            "Heuristic"); //Allows future words to be added
 
 
     /**
@@ -40,7 +40,7 @@ class KeywordDictionary {
      * @return boolean if the word is word relating to start
      */
     static boolean anyStartWord(String word) {
-        List<String> startWords = Arrays.asList( "Start", "Begin");
+        List<String> startWords = Arrays.asList( "Start", "Begin"); //Allows future words to be added
         for (String startWord : startWords) {
             if (word.equals(startWord.toLowerCase())) {
                 return true;
@@ -54,7 +54,7 @@ class KeywordDictionary {
      * @return boolean if the word is word relating to graph
      */
     static boolean anyGraphWord(String word) {
-        List<String> graphWords = Arrays.asList( "Graph", "Set", "Tree");
+        List<String> graphWords = Arrays.asList( "Graph", "Set", "Tree"); //Allows future words to be added
         for (String graphWord : graphWords) {
             if (word.equals(graphWord.toLowerCase())) {
                 return true;
@@ -68,7 +68,7 @@ class KeywordDictionary {
      * @return boolean if the word is word relating to end
      */
     static boolean anyEndWord(String word) {
-        List<String> endWords = Arrays.asList( "End", "Destination", "Goal", "Arrive");
+        List<String> endWords = Arrays.asList( "End", "Destination", "Goal", "Arrive"); //Allows future words to be added
         for (String endWord : endWords) {
             if (word.equals(endWord.toLowerCase())) {
                 return true;
@@ -82,7 +82,7 @@ class KeywordDictionary {
      * @return boolean if the word is word relating to heuristic
      */
     static boolean anyHeuristicWord(String word) {
-        List<String> graphWords = Arrays.asList( "Heuristic");
+        List<String> graphWords = Arrays.asList( "Heuristic"); //Allows future words to be added
         for (String graphWord : graphWords) {
             if (word.equals(graphWord.toLowerCase())) {
                 return true;
@@ -100,6 +100,10 @@ class KeywordDictionary {
         StringBuilder result = new StringBuilder();
         int index = tokens.indexOf(word);
 
+        /*
+        Takes the value 1 after the graph/heuristic as the word graph/heuristic is not needed.
+        Future Additions to be made here to improve whether the input is accurate and to allow parsing into the correct format.
+         */
         for (int i = index + 1; i < tokens.size(); i++) {
             if (tokens.get(i).equals(".")) {
                 break;
@@ -116,6 +120,10 @@ class KeywordDictionary {
      * @return String containing the token that is the second token after word
      */
     static String getNode(String word, List<String> tokens) {
+        /*
+        Takes the value 2 after the graph/heuristic as the word graph/heuristic is not needed and the next word is most likely a word like 'is'.
+        Future Additions to be made here to improve whether the input is accurate and to allow parsing into the correct format.
+         */
         return tokens.get(tokens.indexOf(word) + 2);
     }
 }

@@ -36,7 +36,7 @@ public class SearchNLP {
                 } else if (KeywordDictionary.anyHeuristicWord(temp)) {
                     searchProperties.setHeuristic(KeywordDictionary.getGraphHeuristic(temp, tokens));
                 } else {
-                    //do something with extras
+                    //Deal with any words not included inside the above methods. This is a future addition.
                 }
             }
         }

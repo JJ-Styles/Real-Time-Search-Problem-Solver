@@ -20,17 +20,27 @@ public class ClojureController {
      * @return the solution to the search and the name of the algorithm that returned a result the quickest.
      */
     public String runAlgorithms(String graph, String start, String goal, String heur) {
+        /*
+        Algorithms need a controller class as they each have a different call to library class, also some take extra params.
+        They all extend the super class SearchAlgorithm
+         */
         algorithms.add(new Dfs(goal, graph, start));
         algorithms.add(new Bfs(goal, graph, start));
         algorithms.add(new AStar(goal, graph, start, heur));
         algorithms.add(new Dijkstra(goal, graph, start));
 
+        /*
+        Each Algorithm has a separate thread so it can be ran concurrently
+         */
         for (SearchAlgorithm item : algorithms) {
             threads.add(new Thread(item, item.toString()));
         }
 
         threads.forEach(Thread::start);
 
+        /*
+        Allows for threads to complete and checks which finishes with a result which isn't "Not Found" unless all of the algorithms have "Not Found" as there result.
+         */
         int counter = 0;
         while (!isComplete) {
             for (SearchAlgorithm algorithm : algorithms) {
